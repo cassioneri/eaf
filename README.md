@@ -39,7 +39,7 @@ _msvc.debug_, _clang.release_ or _clang.debug_.
 |to_date               | Benchmark of `to_date` functions                 |
 |to_rata_die           | Benchmark of `to_rata_date` functions            |
 
-Algorithms that calculate dates from _rata die_ (_NN_ ∈ {`01`, `03`, `05`})
+Algorithms that calculate date from _rata die_ (_NN_ ∈ {`01`, `03`, `05`})
 take _rata die_ at command line. For instance:
 
 ```
