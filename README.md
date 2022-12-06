@@ -2,8 +2,8 @@
 
 Supplementary material to:
 
-Neri, C and Schneider L., *"Euclidean Affine Functions and their Application
-to Calendar Algorithms"* (2022).
+Neri C, Schneider L. "*Euclidean affine functions and their application
+to calendar algorithms*". Softw Pract Exper. 2022;1-34. doi: [10.1002/spe.3172](https://onlinelibrary.wiley.com/doi/full/10.1002/spe.3172).
 
 # Building with CMake
 
@@ -99,3 +99,23 @@ of the first build:
 1. [Google Benchmark](https://github.com/google/benchmark);
 2. [Google Test](https://github.com/google/googletest);
 3. [Boost Multiprecision](https://github.com/boostorg/multiprecision).
+
+# Assembly snippets shown in the paper
+
+Here is a list of Compiler Explorer links for each assembly snippet shown in the paper:
+
+* Figure 5: https://godbolt.org/z/zT4xdzTox
+* Figure 6: https://godbolt.org/z/zY87WGz3v
+* Figure 7:
+  * Assembly generation: https://godbolt.org/z/YdfMjGvMd
+  * Left timeline: https://godbolt.org/z/j9PWvP4qG
+  * Right timeline: https://godbolt.org/z/3EvPodxo8
+* Figure 8:
+  * Assembly generation: https://godbolt.org/z/KvqqYd71Y
+  * Left timeline: https://godbolt.org/z/WKEn75qfY
+  * Right timeline: https://godbolt.org/z/sfMcc6z9j
+* Figure 9:
+  * Assembly generation: https://godbolt.org/z/94TYPd1Tn
+  * Left timeline: https://godbolt.org/z/WYbz1xY8a
+  * Right timeline: https://godbolt.org/z/e8Kjbsfd7
+* Figure 10: https://godbolt.org/z/coM5esxP4
