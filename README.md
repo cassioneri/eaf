@@ -1,9 +1,24 @@
 # EAF
 
-Supplementary material to:
+This repository contains the supplementary material to:
 
 Neri C, Schneider L. "*Euclidean affine functions and their application
 to calendar algorithms*". Softw Pract Exper. 2022;1-34. doi: [10.1002/spe.3172](https://onlinelibrary.wiley.com/doi/full/10.1002/spe.3172).
+
+In particular, it contains instructions on how to build the code and the
+article's errata.
+
+## Table of Contents
+
+**[Building with CMake](#building-with-cmake)**<br>
+
+  * **[Command line](#command-line)**
+  * **[Visual Studio IDE](#visual-studio-ide)**
+
+**[Executables](#executables)**<br>
+**[Dependencies](#dependencies)**<br>
+**[Assembly snippets shown in the paper](#assembly-snippets-shown-in-the-paper)**<br>
+**[Errata](#errata)**<br>
 
 # Building with CMake
 
@@ -119,3 +134,21 @@ Here is a list of Compiler Explorer links for each assembly snippet shown in the
   * Left timeline: https://godbolt.org/z/WYbz1xY8a
   * Right timeline: https://godbolt.org/z/e8Kjbsfd7
 * Figure 10: https://godbolt.org/z/coM5esxP4
+
+# Errata
+
+Page numbers below refer to the [PDF file](https://onlinelibrary.wiley.com/doi/epdf/10.1002/spe.3172).
+
+* Page 2, footnote. "2937 and 2821 BC.¹" should read "2937 and 2821 BC. (See Richards.¹)"
+* Page 3, line 43. "does not involve strength reduction." should read "since it involves more than strength reduction."
+* Page 11, caption of Figure 4. "On the right, the Gregorian calendar" should read "On the right, the proleptic Gregorian calendar".
+* Page 14, line 16. "b' = 2928" should read "b' = -2928".
+* Page 18, line 5. "x86_64, the mov instruction" should read "the x86_64's mov instruction".
+* Page 22, line 29. "n = q∙q + r" should read "n = d∙q + r".
+* Page 23, caption of Figure 12. "at least" should read "at least, Nᵤ∈[-12687428, 11248737]. (The range of validity is much larger though.)"
+* Page 25, line 15. " f(g(q)) ≥ f(g(q) - 1)" should read " f(g(q) - 1) ≥ f(g(q))".
+* Page 26, line 20. "q + 1f(f\*(q + 1)) ≤ f(n)" should read "q + 1 = f(f*(q + 1)) ≤ f(n)".
+* Page 28, line 23. "sometimes it is Theorem 3" should read "sometimes it is Theorem 2".
+* Page 28, line 25. "Q(N)" should read "Q(n)".
+* Page 29, line 11. "obtained in in Cavagnino and Werbrouck" should read "obtained in Cavagnino and Werbrouck".
+* Page 29, line 20. "2ᵏ - 2ᵏ/\%d + d" should read "2ᵏ - 2ᵏ\%d + d".
