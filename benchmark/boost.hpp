@@ -8,8 +8,8 @@
  *
  *     [1] https://www.boost.org/
  *
- *     [2] Neri C, and Schneider L, "Euclidean Affine Functions and
- *     Applications to Calendar Algorithms" (2022).
+ *     [2] Neri C, and Schneider L, "Euclidean Affine Functions and their
+ *     Application to Calendar Algorithms" (2022).
  */
 
 #ifndef EAF_BENCHMARK_BOOST_HPP

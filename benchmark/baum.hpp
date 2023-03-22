@@ -7,8 +7,8 @@
  *
  *     [1] https://www.researchgate.net/profile/Peter-Baum
  *
- *     [2] Neri C, and Schneider L, "Euclidean Affine Functions and
- *     Applications to Calendar Algorithms" (2022).
+ *     [2] Neri C, and Schneider L, "Euclidean Affine Functions and their
+ *     Application to Calendar Algorithms" (2022).
  */
 
 #ifndef EAF_BENCHMARK_BAUM_HPP
