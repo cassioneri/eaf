@@ -44,6 +44,9 @@ _msvc.debug_, _clang.release_ or _clang.debug_.
 
 # Executables
 
+They are created in the `build/bin` directory and the instructions below
+assumes this is the current working directory.
+
 | Name                 | Description                                      |
 |----------------------|--------------------------------------------------|
 |algorithm_<i>NN</i>_32| Algorithm number <i>NN</i> using 32-bit integers |
