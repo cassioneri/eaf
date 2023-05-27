@@ -12,10 +12,10 @@
  *     Application to Calendar Algorithms" (2022).
  */
 
-#ifndef EAF_BENCHMARK_REINGOLD_DERSHOWITZ_HPP
-#define EAF_BENCHMARK_REINGOLD_DERSHOWITZ_HPP
+#ifndef EAF_ALGORITHMS_REINGOLD_DERSHOWITZ_HPP
+#define EAF_ALGORITHMS_REINGOLD_DERSHOWITZ_HPP
 
-#include "date.hpp"
+#include "eaf/date.hpp"
 
 #include <cstdint>
 
@@ -99,4 +99,4 @@ private:
 
 }; // struct reingold_dershowitz
 
-#endif // EAF_BENCHMARK_REINGOLD_DERSHOWITZ_HPP
+#endif // EAF_ALGORITHMS_REINGOLD_DERSHOWITZ_HPP

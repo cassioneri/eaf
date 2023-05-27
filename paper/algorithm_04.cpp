@@ -13,8 +13,8 @@
  *     Application to Calendar Algorithms" (2022).
  */
 
-#include "common.hpp"
-#include "gregorian.hpp"
+#include "eaf/common.hpp"
+#include "eaf/gregorian.hpp"
 
 #include <cstdint>
 #include <iostream>

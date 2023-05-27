@@ -13,8 +13,8 @@
  *     Application to Calendar Algorithms" (2022).
  */
 
-#include "common.hpp"
-#include "julian.hpp"
+#include "eaf/common.hpp"
+#include "eaf/julian.hpp"
 
 #include <cstdint>
 #include <iostream>

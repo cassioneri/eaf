@@ -3,10 +3,9 @@
 // SPDX-FileCopyrightText: 2022 Lorenz Schneider <schneider@em-lyon.com>
 
 /**
- * @file to_rata_die.cpp
+ * @file to_date.cpp
  *
- * @brief Command line program that benchmarks implementations of
- * to_rata_die().
+ * @brief Command line program that benchmarks implementations of to_date().
  *
  * This code is a supplementary material to:
  *
@@ -14,17 +13,17 @@
  *     Application to Calendar Algorithms" (2022).
  */
 
-#include "baum.hpp"
-#include "boost.hpp"
-#include "date.hpp"
-#include "dotnet.hpp"
-#include "fliegel_flandern.hpp"
-#include "glibc.hpp"
-#include "hatcher.hpp"
-#include "libcxx.hpp"
-#include "neri_schneider.hpp"
-#include "openjdk.hpp"
-#include "reingold_dershowitz.hpp"
+#include "algorithms/baum.hpp"
+#include "algorithms/boost.hpp"
+#include "algorithms/dotnet.hpp"
+#include "algorithms/fliegel_flandern.hpp"
+#include "algorithms/glibc.hpp"
+#include "algorithms/hatcher.hpp"
+#include "algorithms/libcxx.hpp"
+#include "algorithms/neri_schneider.hpp"
+#include "algorithms/openjdk.hpp"
+#include "algorithms/reingold_dershowitz.hpp"
+#include "eaf/date.hpp"
 
 #include <benchmark/benchmark.h>
 
@@ -32,16 +31,16 @@
 #include <cstdint>
 #include <random>
 
-auto const dates = [](){
+auto const rata_dies = [](){
   // The interval [-146097, 146097[ covers dates from 1 January 1570
   // (inclusive) to 1 January 2370 (exclusive), that is, an interval of 800
   // years centered at 1 January 1970 (Unix epoch).
   std::uniform_int_distribution<int32_t> uniform_dist(-146097, 146096);
   std::mt19937 rng;
-  std::array<date32_t, 16384> ds;
-  for (auto& u : ds)
-    u = neri_schneider::to_date(uniform_dist(rng));
-  return ds;
+  std::array<int32_t, 16384> ns;
+  for (int32_t& n : ns)
+    n = uniform_dist(rng);
+  return ns;
 }();
 
 struct scan {};
@@ -52,16 +51,16 @@ void time(benchmark::State& state);
 template <>
 void time<scan>(benchmark::State& state) {
   for (auto _ : state)
-    for (auto const& date : dates)
-      benchmark::DoNotOptimize(date);
+    for (int32_t rata_die : rata_dies)
+      benchmark::DoNotOptimize(rata_die);
 }
 
 template <typename A>
 void time(benchmark::State& state) {
   for (auto _ : state) {
-    for (auto const& date : dates) {
-      int32_t rata_die = A::to_rata_die(date.year, date.month, date.day);
-      benchmark::DoNotOptimize(rata_die);
+    for (int32_t rata_die : rata_dies) {
+      date32_t date = A::to_date(rata_die);
+      benchmark::DoNotOptimize(date);
     }
   }
 }

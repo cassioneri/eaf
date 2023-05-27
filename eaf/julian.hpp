@@ -13,10 +13,10 @@
  *     Application to Calendar Algorithms" (2022).
  */
 
-#ifndef EAF_JULIAN_HPP
-#define EAF_JULIAN_HPP
+#ifndef EAF_EAF_JULIAN_HPP
+#define EAF_EAF_JULIAN_HPP
 
-#include "common.hpp"
+#include "eaf/common.hpp"
 
 #include <cstdint>
 
@@ -186,4 +186,4 @@ to_rata_die(T Y_J, uint32_t M_J, uint32_t D_J) noexcept {
 } // namespace julian
 } // namespace eaf
 
-#endif // EAF_JULIAN_HPP
+#endif // EAF_EAF_JULIAN_HPP

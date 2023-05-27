@@ -13,10 +13,10 @@
  *     Application to Calendar Algorithms" (2022).
  */
 
-#ifndef EAF_BENCHMARK_FLIEGEL_FLANDERN_HPP
-#define EAF_BENCHMARK_FLIEGEL_FLANDERN_HPP
+#ifndef EAF_ALGORITHMS_FLIEGEL_FLANDERN_HPP
+#define EAF_ALGORITHMS_FLIEGEL_FLANDERN_HPP
 
-#include "date.hpp"
+#include "eaf/date.hpp"
 
 #include <cstdint>
 
@@ -55,4 +55,4 @@ struct fliegel_flandern {
 
 }; // struct fliegel_flandern
 
-#endif // EAF_BENCHMARK_FLIEGEL_FLANDERN_HPP
+#endif // EAF_ALGORITHMS_FLIEGEL_FLANDERN_HPP

@@ -77,10 +77,10 @@
  *     Application to Calendar Algorithms" (2022).
  */
 
-#ifndef EAF_BENCHMARK_OPENJDK_HPP
-#define EAF_BENCHMARK_OPENJDK_HPP
+#ifndef EAF_ALGORITHMS_OPENJDK_HPP
+#define EAF_ALGORITHMS_OPENJDK_HPP
 
-#include "date.hpp"
+#include "eaf/date.hpp"
 
 #include <cstdint>
 
@@ -163,4 +163,4 @@ private:
 
 }; // struct openjdk
 
-#endif // EAF_BENCHMARK_OPENJDK_HPP
+#endif // EAF_ALGORITHMS_OPENJDK_HPP

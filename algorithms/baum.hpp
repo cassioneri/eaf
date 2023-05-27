@@ -11,10 +11,10 @@
  *     Application to Calendar Algorithms" (2022).
  */
 
-#ifndef EAF_BENCHMARK_BAUM_HPP
-#define EAF_BENCHMARK_BAUM_HPP
+#ifndef EAF_OTHERS_BAUM_HPP
+#define EAF_OTHERS_BAUM_HPP
 
-#include "date.hpp"
+#include "eaf/date.hpp"
 
 #include <cstdint>
 
@@ -59,4 +59,4 @@ struct baum {
 
 }; // struct baum
 
-#endif // EAF_BENCHMARK_BAUM_HPP
+#endif // EAF_OTHERS_BAUM_HPP

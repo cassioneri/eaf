@@ -13,10 +13,10 @@
  *     [2] Neri C, and Schneider L, "Euclidean Affine Functions and their
  *     Application to Calendar Algorithms" (2022).
  */
-#ifndef EAF_BENCHMARK_LIBCXX_HPP
-#define EAF_BENCHMARK_LIBCXX_HPP
+#ifndef EAF_ALGORITHMS_LIBCXX_HPP
+#define EAF_ALGORITHMS_LIBCXX_HPP
 
-#include "date.hpp"
+#include "eaf/date.hpp"
 
 #include <cstdint>
 
@@ -58,4 +58,4 @@ struct libcxx {
 
 }; // struct libcxx
 
-#endif // EAF_BENCHMARK_LIBCXX_HPP
+#endif // EAF_ALGORITHMS_LIBCXX_HPP

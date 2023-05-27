@@ -12,10 +12,10 @@
  *     Application to Calendar Algorithms" (2022).
  */
 
-#ifndef EAF_BENCHMARK_BOOST_HPP
-#define EAF_BENCHMARK_BOOST_HPP
+#ifndef EAF_OTHERS_BOOST_HPP
+#define EAF_OTHERS_BOOST_HPP
 
-#include "date.hpp"
+#include "eaf/date.hpp"
 
 #include <cstdint>
 
@@ -55,4 +55,4 @@ struct boost {
 
 }; // struct boost
 
-#endif // EAF_BENCHMARK_BOOST_HPP
+#endif // EAF_OTHERS_BOOST_HPP

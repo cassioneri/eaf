@@ -13,10 +13,10 @@
  *     Application to Calendar Algorithms" (2022).
  */
 
-#ifndef EAF_BENCHMARK_HATCHER_H
-#define EAF_BENCHMARK_HATCHER_H
+#ifndef EAF_ALGORITHMS_HATCHER_H
+#define EAF_ALGORITHMS_HATCHER_H
 
-#include "date.hpp"
+#include "eaf/date.hpp"
 
 #include <stdint.h>
 
@@ -55,4 +55,4 @@ struct hatcher {
 
 }; // struct hatcher
 
-#endif // EAF_BENCHMARK_HATCHER_H
+#endif // EAF_ALGORITHMS_HATCHER_H

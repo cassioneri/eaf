@@ -3,9 +3,9 @@
 // SPDX-FileCopyrightText: 2022 Lorenz Schneider <schneider@em-lyon.com>
 
 /**
- * @file algorithm_03.cpp
+ * @file algorithm_02.cpp
  *
- * @brief Command line program that runs algorithm 3.
+ * @brief Command line program that runs algorithm 2.
  *
  * This code is a supplementary material to:
  *
@@ -13,8 +13,8 @@
  *     Application to Calendar Algorithms" (2022).
  */
 
-#include "common.hpp"
-#include "gregorian.hpp"
+#include "eaf/common.hpp"
+#include "eaf/julian.hpp"
 
 #include <cstdint>
 #include <iostream>
@@ -25,8 +25,9 @@ int main(int argc, char* argv[]) {
   using rata_die_type = config_type;
   using date_type     = date_t<config_type>;
 
-  rata_die_type const N    = parser<rata_die_type>::rata_die(argc, argv);
-  date_type     const date = gregorian::to_date(N);
+  date_type     const date = parser<rata_die_type>::date(argc, argv);
+  rata_die_type const N    = julian::to_rata_die(date.year, date.month,
+    date.day);
 
   print(N, date);
 

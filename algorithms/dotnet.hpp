@@ -14,10 +14,10 @@
  *     Application to Calendar Algorithms" (2022).
  */
 
-#ifndef EAF_BENCHMARK_DOTNET_HPP
-#define EAF_BENCHMARK_DOTNET_HPP
+#ifndef EAF_ALGORITHMS_DOTNET_HPP
+#define EAF_ALGORITHMS_DOTNET_HPP
 
-#include "date.hpp"
+#include "eaf/date.hpp"
 
 #include <cstdint>
 
@@ -85,4 +85,4 @@ private:
 
 }; // struct dotnet
 
-#endif // EAF_BENCHMARK_DOTNET_HPP
+#endif // EAF_ALGORITHMS_DOTNET_HPP

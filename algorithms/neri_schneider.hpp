@@ -13,10 +13,10 @@
  *     Application to Calendar Algorithms" (2022).
  */
 
-#ifndef EAF_BENCHMARK_NERI_SCHNEIDER_H
-#define EAF_BENCHMARK_NERI_SCHNEIDER_H
+#ifndef EAF_ALGORITHMS_NERI_SCHNEIDER_H
+#define EAF_ALGORITHMS_NERI_SCHNEIDER_H
 
-#include "date.hpp"
+#include "eaf/date.hpp"
 
 #include <cstdint>
 
@@ -28,16 +28,14 @@ struct neri_schneider {
   static uint32_t constexpr L = 400 * s;
 
   /**
-  * @brief Finds the proleptic Gregorian date from its rata die.
-  *
-  * The epoch is 1 January 1970 (Unix epoch) of the Gregorian calendar.
-  *
-  * @tparam T        Year and rata die type.
-  *
-  * @param N         The rata die.
-  *
-  * @return The proleptic Gregorian date.
-  */
+   * @brief Finds the proleptic Gregorian date from its rata die.
+   *
+   * The epoch is 1 January 1970 (Unix epoch) of the Gregorian calendar.
+   *
+   * @param N         The rata die.
+   *
+   * @return The proleptic Gregorian date.
+   */
   static inline
   date32_t to_date(int32_t N_U) {
 
@@ -71,18 +69,16 @@ struct neri_schneider {
   }
 
   /**
-  * @brief Calculates the rata die of a given proleptic Gregorian date.
-  *
-  * The epoch is 1 January 1970 of the Gregorian calendar.
-  *
-  * @tparam T        Year and rata die type.
-  *
-  * @param Y_G       The year.
-  * @param M_G       The month.
-  * @param D_G       The day.
-  *
-  * @return The rata die.
-  */
+   * @brief Calculates the rata die of a given proleptic Gregorian date.
+   *
+   * The epoch is 1 January 1970 of the Gregorian calendar.
+   *
+   * @param Y_G       The year.
+   * @param M_G       The month.
+   * @param D_G       The day.
+   *
+   * @return The rata die.
+   */
   static inline
   int32_t to_rata_die(int32_t Y_G, uint32_t M_G, uint32_t D_G) {
 
@@ -111,4 +107,4 @@ struct neri_schneider {
 
 }; // struct neri_schneider
 
-#endif // EAF_BENCHMARK_NERI_SCHNEIDER_H
+#endif // EAF_ALGORITHMS_NERI_SCHNEIDER_H

@@ -76,41 +76,9 @@ FetchContent_MakeAvailable(googletest)
 # EAF
 #---------------------------------------------------------------------------
 
-foreach(ALGORITHM 01;02;03;04;05;06)
-  foreach(SIZE 32;64)
+include_directories(${CMAKE_SOURCE_DIR})
 
-    add_executable(algorithm_${ALGORITHM}_${SIZE}
-      algorithm_${ALGORITHM}.cpp
-    )
-
-    target_compile_definitions(algorithm_${ALGORITHM}_${SIZE} PUBLIC
-      EAF_SIZE=${SIZE}
-    )
-
-  endforeach()
-endforeach()
-
-foreach(EXAMPLE 08;09;10;11;12;13;14;15;16)
-  add_executable(example_${EXAMPLE} example_${EXAMPLE}.cpp)
-endforeach()
-
-add_executable(fast_eaf fast_eaf.cpp)
-target_link_libraries(fast_eaf boost_multiprecision)
-
-add_executable(to_date
-  benchmark/to_date.cpp
-  benchmark/definitions.cpp
-)
-target_link_libraries(to_date benchmark benchmark_main)
-
-add_executable(to_rata_die
-  benchmark/to_rata_die.cpp
-  benchmark/definitions.cpp
-)
-target_link_libraries(to_rata_die benchmark benchmark_main)
-
-add_executable(tests
-  benchmark/tests.cpp
-  benchmark/definitions.cpp
-)
-target_link_libraries(tests gtest gtest_main)
+add_subdirectory(algorithms)
+add_subdirectory(benchmarks)
+add_subdirectory(paper)
+add_subdirectory(tests)

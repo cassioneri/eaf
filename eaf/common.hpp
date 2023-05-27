@@ -13,8 +13,8 @@
  *     Application to Calendar Algorithms" (2022).
  */
 
-#ifndef EAF_COMMON_HPP
-#define EAF_COMMON_HPP
+#ifndef EAF_EAF_COMMON_HPP
+#define EAF_EAF_COMMON_HPP
 
 #include <cinttypes>
 #include <cstdint>
@@ -241,4 +241,4 @@ print(T const N, date_t<T> const date) {
 
 } // namespace eaf
 
-#endif // EAF_COMMON_HPP
+#endif // EAF_EAF_COMMON_HPP

@@ -13,13 +13,14 @@
  *     Application to Calendar Algorithms" (2022).
  */
 
-#ifndef EAF_BENCHMARK_DATE_HPP
-#define EAF_BENCHMARK_DATE_HPP
+#ifndef EAF_EAF_DATE_HPP
+#define EAF_EAF_DATE_HPP
 
-#include "../common.hpp"
+#include "eaf/common.hpp"
 
 #include <cstdint>
 
 using date32_t = ::eaf::date_t<int32_t>;
+using date64_t = ::eaf::date_t<int64_t>;
 
-#endif // EAF_BENCHMARK_DATE_HPP
+#endif // EAF_EAF_DATE_HPP
