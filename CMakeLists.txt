@@ -77,6 +77,7 @@ FetchContent_MakeAvailable(googletest)
 #---------------------------------------------------------------------------
 
 include_directories(${CMAKE_SOURCE_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 
 add_subdirectory(algorithms)
 add_subdirectory(benchmarks)
