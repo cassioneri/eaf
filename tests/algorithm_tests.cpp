@@ -33,7 +33,9 @@
 #include <cstdint>
 
 namespace eaf {
-namespace test {
+namespace tests {
+
+using gregorian_t = calendar_t<gregorian_leap_t>;
 
 //--------------------------------------------------------------------------
 // Limits
@@ -108,7 +110,8 @@ TYPED_TEST(algorithm_tests, to_date_forward) {
   date32_t date = unix_epoch;
   for (int32_t n = 0; n < rata_die_max; ) {
     date32_t const tomorrow = algoritm_t::to_date(++n);
-    ASSERT_EQ(tomorrow, advance(date)) << "Failed for rata_die = " << n;
+    ASSERT_EQ(tomorrow, gregorian_t::advance(date)) <<
+      "Failed for rata_die = " << n;
   }
 }
 
@@ -124,12 +127,14 @@ TYPED_TEST(algorithm_tests, to_date_backward) {
   date32_t date = unix_epoch;
   for (int32_t n = 0; rata_die_min < n; ) {
     date32_t const yesterday = algoritm_t::to_date(--n);
-    ASSERT_EQ(yesterday, regress(date)) << "Failed for rata_die = " << n;
+    ASSERT_EQ(yesterday, gregorian_t::regress(date)) <<
+      "Failed for rata_die = " << n;
   }
 }
 
 /**
- * Tests whether to_rata_die produce correct results going foward from epoch to date_max.
+ * Tests whether to_rata_die produce correct results going foward from epoch
+ * to date_max.
  */
 TYPED_TEST(algorithm_tests, to_rata_die_forward) {
 
@@ -138,13 +143,14 @@ TYPED_TEST(algorithm_tests, to_rata_die_forward) {
 
   int32_t n = 0;
   for (date32_t date = unix_epoch; date < date_max; ) {
-    int32_t const tomorrow = to_rata_die<algoritm_t>(advance(date));
+    int32_t const tomorrow = to_rata_die<algoritm_t>(gregorian_t::advance(date));
     ASSERT_EQ(tomorrow, ++n) << "Failed for date = " << date;
   }
 }
 
 /**
- * Tests whether to_rata_die produce correct results backward from epoch to date_min.
+ * Tests whether to_rata_die produce correct results backward from epoch to
+ * date_min.
  */
 TYPED_TEST(algorithm_tests, to_rata_die_backward) {
 
@@ -153,10 +159,10 @@ TYPED_TEST(algorithm_tests, to_rata_die_backward) {
 
   int32_t n = 0;
   for (date32_t date = unix_epoch; date_min < date; ) {
-    int32_t const yesterday = to_rata_die<algoritm_t>(regress(date));
+    int32_t const yesterday = to_rata_die<algoritm_t>(gregorian_t::regress(date));
     ASSERT_EQ(yesterday, --n) << "Failed for date = " << date;
   }
 }
 
-} // namespace test
+} // namespace tests
 } // namespace eaf
