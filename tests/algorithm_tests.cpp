@@ -3,9 +3,10 @@
 // SPDX-FileCopyrightText: 2022 Lorenz Schneider <schneider@em-lyon.com>
 
 /**
- * @file tests.cpp
+ * @file algorithm_tests.cpp
  *
- * @brief Command line program that tests many calendar algorithms.
+ * @brief Command line program that tests implementations of ours and
+ *   others' calendar algorithms.
  *
  * This code is a supplementary material to:
  *
@@ -58,12 +59,12 @@ struct limits<neri_schneider> {
 };
 
 //--------------------------------------------------------------------------
-// Calendar tests
+// Algorithm tests
 //--------------------------------------------------------------------------
 
 template <typename A>
-struct calendar_tests : public ::testing::Test {
-}; // struct calendar_tests
+struct algorithm_tests : public ::testing::Test {
+}; // struct algorithm_tests
 
 using implementations = ::testing::Types<
   baum,
@@ -79,14 +80,14 @@ using implementations = ::testing::Types<
 
 // The extra comma below is to silent a warning.
 // https://github.com/google/googletest/issues/2271#issuecomment-665742471
-TYPED_TEST_SUITE(calendar_tests, implementations, );
+TYPED_TEST_SUITE(algorithm_tests, implementations, );
 
 static date32_t constexpr unix_epoch = { 1970, 1, 1 };
 
 /**
  * Tests whether epoch is mapped to 0.
  */
-TYPED_TEST(calendar_tests, epoch) {
+TYPED_TEST(algorithm_tests, epoch) {
 
   using algoritm_t = TypeParam;
 
@@ -98,7 +99,7 @@ TYPED_TEST(calendar_tests, epoch) {
  * Tests whether to_date produces correct results going forward from 0 to
  * rata_die_max.
  */
-TYPED_TEST(calendar_tests, to_date_forward) {
+TYPED_TEST(algorithm_tests, to_date_forward) {
 
   using algoritm_t     = TypeParam;
   int32_t rata_die_max = limits<algoritm_t>::rata_die_max;
@@ -114,7 +115,7 @@ TYPED_TEST(calendar_tests, to_date_forward) {
  * Tests whether to_date produces correct results going backward from 0 t
  * rata_die_min.
  */
-TYPED_TEST(calendar_tests, to_date_backward) {
+TYPED_TEST(algorithm_tests, to_date_backward) {
 
   using algoritm_t     = TypeParam;
   int32_t rata_die_min = limits<algoritm_t>::rata_die_min;
@@ -129,7 +130,7 @@ TYPED_TEST(calendar_tests, to_date_backward) {
 /**
  * Tests whether to_rata_die produce correct results going foward from epoch to date_max.
  */
-TYPED_TEST(calendar_tests, to_rata_die_forward) {
+TYPED_TEST(algorithm_tests, to_rata_die_forward) {
 
   using algoritm_t  = TypeParam;
   date32_t date_max = limits<algoritm_t>::date_max;
@@ -144,7 +145,7 @@ TYPED_TEST(calendar_tests, to_rata_die_forward) {
 /**
  * Tests whether to_rata_die produce correct results backward from epoch to date_min.
  */
-TYPED_TEST(calendar_tests, to_rata_die_backward) {
+TYPED_TEST(algorithm_tests, to_rata_die_backward) {
 
   using algoritm_t  = TypeParam;
   date32_t date_min = limits<algoritm_t>::date_min;

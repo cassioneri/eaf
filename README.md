@@ -53,7 +53,7 @@ assumes this is the current working directory.
 |algorithm_<i>NN</i>_64| Algorithm number <i>NN</i> using 64-bit integers |
 |example_<i>NN</i>     | Example number <i>NN</i>                         |
 |fast_eaf              | Calculates fast EAF coefficients                 |
-|tests                 | Tests implementations                            |
+|algorithm_tests       | Tests all algorithms (ours and others')          |
 |to_date               | Benchmark of `to_date` functions                 |
 |to_rata_die           | Benchmark of `to_rata_date` functions            |
 

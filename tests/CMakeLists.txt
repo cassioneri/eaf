@@ -7,8 +7,8 @@
 #     Neri C, and Schneider L, "Euclidean Affine Functions and their
 #     Application to Calendar Algorithms" (2022).
 
-add_executable(tests
-  tests.cpp
+add_executable(algorithm_tests
+  algorithm_tests.cpp
   ../algorithms/definitions.cpp
 )
-target_link_libraries(tests gtest gtest_main)
+target_link_libraries(algorithm_tests gtest gtest_main)
