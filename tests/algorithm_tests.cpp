@@ -33,6 +33,7 @@
 #include <cstdint>
 
 namespace eaf {
+namespace test {
 
 //--------------------------------------------------------------------------
 // Limits
@@ -157,4 +158,5 @@ TYPED_TEST(algorithm_tests, to_rata_die_backward) {
   }
 }
 
+} // namespace test
 } // namespace eaf

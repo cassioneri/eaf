@@ -21,6 +21,7 @@
 #include <cstdint>
 
 namespace eaf {
+namespace test {
 
 //--------------------------------------------------------------------------
 // Helpers
@@ -123,6 +124,7 @@ int32_t to_rata_die(date32_t date) {
   return T::to_rata_die(date.year, date.month, date.day);
 }
 
+} // namespace test
 } // namespace eaf
 
 #endif // EAF_TESTS_TESTS_HPP
