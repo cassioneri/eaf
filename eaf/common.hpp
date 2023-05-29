@@ -113,7 +113,7 @@ operator <<(std::ostream& os, date_t<T> const date) {
 template <typename T>
 T constexpr
 quotient(T const n, int32_t const d) noexcept {
-  return n >= 0 ? n / d : (n - (d - 1)) / d;
+  return n >= 0 ? n / d : (n + 1) / d - 1;
 }
 
 /**
@@ -131,7 +131,7 @@ quotient(T const n, int32_t const d) noexcept {
 template <typename T>
 uint32_t constexpr
 remainder(T const n, int32_t const d) noexcept {
-  return uint32_t(n >= 0 ? n % d : n - d * quotient(n, d));
+  return uint32_t(n >= 0 ? n % d : (n + d) - d * quotient((n + d), d));
 }
 
 /**
