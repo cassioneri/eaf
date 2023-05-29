@@ -29,6 +29,10 @@ foreach(EXAMPLE 08;09;10;11;12;13;14;15;16)
   add_executable(example_${EXAMPLE} example_${EXAMPLE}.cpp)
 endforeach()
 
+foreach(FIGURE 12;13)
+  add_executable(figure_${FIGURE} figure_${FIGURE}.cpp)
+endforeach()
+
 add_executable(fast_eaf fast_eaf.cpp)
 target_link_libraries(fast_eaf boost_multiprecision)
 

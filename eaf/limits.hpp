@@ -19,7 +19,7 @@
 namespace eaf {
 
 /**
- * @brief Limits for the (non optimised) Julian and Gregorian algorithms.
+ * @brief Limits for (non optimised) Julian and Gregorian algorithms.
  *
  * Contains static \c constexpr data members \c rata_die_min,
  * \c rata_die_min, \c date_min and \c date_max, so that:
@@ -74,8 +74,8 @@ public:
 };
 
 /**
- * @brief Limits for the optimised Gregorian algorithms with customised
- * epoch. (Section 11 of the paper.)
+ * @brief Limits for optimised Gregorian algorithms with customised epoch.
+ * (Section 11 of the paper.)
  *
  * Contains static \c constexpr data members \c rata_die_min,
  * \c rata_die_min, \c date_min and \c date_max, so that:
