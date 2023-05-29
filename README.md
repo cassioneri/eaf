@@ -47,18 +47,22 @@ _msvc.debug_, _clang.release_ or _clang.debug_.
 They are created in the `build/bin` directory and the instructions below
 assumes this is the current working directory.
 
-| Name                 | Description                                      |
-|----------------------|--------------------------------------------------|
-|algorithm_<i>NN</i>_32| Algorithm number <i>NN</i> using 32-bit integers |
-|algorithm_<i>NN</i>_64| Algorithm number <i>NN</i> using 64-bit integers |
-|example_<i>NN</i>     | Example number <i>NN</i>                         |
-|fast_eaf              | Calculates fast EAF coefficients                 |
-|algorithm_tests       | Tests all algorithms (ours and others')          |
-|to_date               | Benchmark of `to_date` functions                 |
-|to_rata_die           | Benchmark of `to_rata_date` functions            |
+| Name                 | Description                                                |
+|----------------------|------------------------------------------------------------|
+|`algorithm_`<i>NN</i>`_32`| Paper's algorithm number <i>NN</i> for 32-bits         |
+|`algorithm_`<i>NN</i>_`64`| Paper's algorithm number <i>NN</i> for 64-bits         |
+|`algorithm_tests`       | Tests all third party algorithms.                        |
+|`eaf_tests `            | Exhaustive tests for all 32-bits algorithms in the paper |
+|`example_`<i>NN</i>     | Paper's example number <i>NN</i>                         |
+|`fast_eaf `             | Calculates fast EAF coefficients                         |
+|`figure_`<i>NN</i>      | Algorithm of figure <i>NN</i>                            |
+|`info `                 | Display range limits of all algorithms in the paper      |
+|`to_date`               | Benchmark of `to_date` functions                         |
+|`to_rata_die`           | Benchmark of `to_rata_date` functions                    |
 
-Algorithms that calculate date from _rata die_ (_NN_ ∈ {`01`, `03`, `05`})
-take _rata die_ at command line. For instance:
+Algorithms that calculate date from _rata die_ (`algorithm_`<i>NN</i>_{`32`|`64`}
+for _NN_ ∈ {`01`, `03`, `05`} and `figure_12`) take _rata die_ at command
+line. For instance:
 
 ```
 $ ./algorithm_03_32 738734
@@ -66,15 +70,17 @@ rata die = 738734
 date     = 2022 10 1
 ```
 
-Algorithms that calculate _rata die_ from date (_NN_ ∈ {`02`, `04`, `06`})
-take _year_ _month_ _day_ at command line. For instance:
+Algorithms that calculate _rata die_ from date (`algorithm_`<i>NN</i>_{`32`|`64`}
+for _NN_ ∈ {`02`, `04`, `06`} and `figure_13`) take _year_ _month_ _day_ at
+command line. For instance:
 ```
 $ ./algorithm_04_32 2022 10 1
 rata die = 738734
 date     = 2022 10 1
 ```
 
-Examples do not take any argument at command line. For instance:
+Examples, tests, benchmarks and `info` do not take compulsory arguments at
+command line. For instance:
 ```
 $ ./example_10
 Testing:
@@ -99,7 +105,7 @@ k           = 16
 upper bound = 734
 ```
 
-`tests` uses [Google Test](https://github.com/google/googletest) and
+Tests (`algorithm_tests` and `eaf_tests`) uses [Google Test](https://github.com/google/googletest) and
 allows this library's usual options (_e.g._, `--help`). The implementations of
 our own algorithms are exhaustively tested on their whole range of validity
 (spanning millions of years). Implementations of competitor algorithms are
