@@ -60,7 +60,7 @@ public:
   //     Y <= max / 1461 <=> Y_{G/J} <= max / 1461.
   // Hence, there's no overflow up to 28 Feb of year max / 1461 + 1.
   // (If year max / 1461 + 1 is a leap year, then there's no overflow on 29
-  // Feb of this year either, so that the bound above might not be sharp.)
+  // Feb of this year either, so the bound below might not be sharp.)
   static date_t<T> constexpr date_max = { max / 1461 + 1, 2, 28 };
 
   // Assume Y < 0. Then, 1461 * Y overflows if, and only if,
