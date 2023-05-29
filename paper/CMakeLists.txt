@@ -31,3 +31,5 @@ endforeach()
 
 add_executable(fast_eaf fast_eaf.cpp)
 target_link_libraries(fast_eaf boost_multiprecision)
+
+add_executable(info info.cpp)
