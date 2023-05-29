@@ -53,7 +53,7 @@ struct gregorian_leap_t {
 };
 
 template <typename Leap>
-struct calendar_t {
+struct helper_t {
 
   /**
    * @brief Returns the last day of the month for a given year and month.
@@ -134,7 +134,10 @@ struct calendar_t {
     return regress(date);
   }
 
-}; // struct calendar_t
+}; // struct helper_t
+
+using julian_helper_t = helper_t<julian_leap_t>;
+using gregorian_helper_t = helper_t<gregorian_leap_t>;
 
 // Used in tests.
 template <typename T>

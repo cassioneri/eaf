@@ -35,8 +35,6 @@
 namespace eaf {
 namespace tests {
 
-using gregorian_t = calendar_t<gregorian_leap_t>;
-
 //--------------------------------------------------------------------------
 // Limits
 //--------------------------------------------------------------------------
@@ -110,7 +108,7 @@ TYPED_TEST(algorithm_tests, to_date_forward) {
   date32_t date = unix_epoch;
   for (int32_t n = 0; n < rata_die_max; ) {
     date32_t const tomorrow = algoritm_t::to_date(++n);
-    ASSERT_EQ(tomorrow, gregorian_t::advance(date)) <<
+    ASSERT_EQ(tomorrow, gregorian_helper_t::advance(date)) <<
       "Failed for rata_die = " << n;
   }
 }
@@ -127,7 +125,7 @@ TYPED_TEST(algorithm_tests, to_date_backward) {
   date32_t date = unix_epoch;
   for (int32_t n = 0; rata_die_min < n; ) {
     date32_t const yesterday = algoritm_t::to_date(--n);
-    ASSERT_EQ(yesterday, gregorian_t::regress(date)) <<
+    ASSERT_EQ(yesterday, gregorian_helper_t::regress(date)) <<
       "Failed for rata_die = " << n;
   }
 }
@@ -143,7 +141,8 @@ TYPED_TEST(algorithm_tests, to_rata_die_forward) {
 
   int32_t n = 0;
   for (date32_t date = unix_epoch; date < date_max; ) {
-    int32_t const tomorrow = to_rata_die<algoritm_t>(gregorian_t::advance(date));
+    int32_t const tomorrow =
+      to_rata_die<algoritm_t>(gregorian_helper_t::advance(date));
     ASSERT_EQ(tomorrow, ++n) << "Failed for date = " << date;
   }
 }
@@ -159,7 +158,8 @@ TYPED_TEST(algorithm_tests, to_rata_die_backward) {
 
   int32_t n = 0;
   for (date32_t date = unix_epoch; date_min < date; ) {
-    int32_t const yesterday = to_rata_die<algoritm_t>(gregorian_t::regress(date));
+    int32_t const yesterday =
+      to_rata_die<algoritm_t>(gregorian_helper_t::regress(date));
     ASSERT_EQ(yesterday, --n) << "Failed for date = " << date;
   }
 }
