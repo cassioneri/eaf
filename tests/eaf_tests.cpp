@@ -57,13 +57,50 @@ struct gregorian : gregorian_helper_t, limits<int32_t> {
 
 };
 
+struct gregorian_opt : gregorian_helper_t, limits_gregorian_opt<int32_t> {
+
+  static date32_t constexpr epoch = { 0, 3, 1 };
+
+  static date32_t constexpr
+  to_date(int32_t N) noexcept {
+    return ::eaf::gregorian::to_date_opt(N);
+  }
+
+  int32_t constexpr
+  static to_rata_die(int32_t Y_J, uint32_t M_J, uint32_t D_J) noexcept {
+    return ::eaf::gregorian::to_rata_die_opt(Y_J, M_J, D_J);
+  }
+
+};
+
+struct gregorian_unix :
+  gregorian_helper_t,
+  limits_gregorian_opt<int32_t, 719468, 82> {
+
+  static date32_t constexpr epoch = { 1970, 1, 1 };
+
+  static date32_t constexpr
+  to_date(int32_t N) noexcept {
+    return ::eaf::gregorian::to_date_opt<int32_t, 719468, 82>(N);
+  }
+
+  int32_t constexpr
+  static to_rata_die(int32_t Y_J, uint32_t M_J, uint32_t D_J) noexcept {
+    return ::eaf::gregorian::to_rata_die_opt<int32_t, 719468, 82>(Y_J, M_J,
+      D_J);
+  }
+
+};
+
 template <typename A>
 struct eaf_tests : public ::testing::Test {
 }; // struct eaf_tests
 
 using calendars = ::testing::Types<
   julian,
-  gregorian
+  gregorian,
+  gregorian_opt,
+  gregorian_unix
 >;
 
 // The extra comma below is to silent a warning.

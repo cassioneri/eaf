@@ -52,6 +52,22 @@ struct gregorian_t : limits<T> {
 
 };
 
+template <typename T, T epoch = 0, T s = 0>
+struct gregorian_opt_t : limits_gregorian_opt<T, epoch, s> {
+
+  static date_t<T> constexpr
+  to_date(T N) noexcept {
+    return ::eaf::gregorian::to_date_opt<T, epoch, s>(N);
+  }
+
+  T constexpr
+  static to_rata_die(date_t<T> date) noexcept {
+    return ::eaf::gregorian::to_rata_die_opt<T, epoch, s>(date.year,
+      date.month, date.day);
+  }
+
+};
+
 template <typename TAlgorithm>
 void print() {
 
@@ -102,6 +118,26 @@ int main() {
 
   std::cout << "Gregorian 64-bits:\n";
   print<gregorian_t<int64_t>>();
+
+  std::cout << '\n';
+
+  std::cout << "Gregorian optimised 32-bits:\n";
+  print<gregorian_opt_t<int32_t>>();
+
+  std::cout << '\n';
+
+  std::cout << "Gregorian optimised 64-bits:\n";
+  print<gregorian_opt_t<int64_t>>();
+
+  std::cout << '\n';
+
+  std::cout << "Gregorian (Unix) optimised 32-bits:\n";
+  print<gregorian_opt_t<int32_t, 719468, 82>>();
+
+  std::cout << '\n';
+
+  std::cout << "Gregorian (Unix) optimised 64-bits:\n";
+  print<gregorian_opt_t<int64_t, 719468, 82>>();
 
   return 0;
 }
