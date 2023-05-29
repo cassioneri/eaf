@@ -44,10 +44,10 @@ struct gregorian_leap_t {
    * @param y          The given year.
    */
   static bool is_leap_year(int32_t y) {
-    // Originally, the ternary expression was similar to
-    //   y % 100 == 0 ? y % 16 == 0 : y % 4 == 0;
-    // and Ulrich Drepper suggested the following twist.
-    return (uint32_t(y) & (y % 100 == 0 ? 15 : 3)) == 0;
+    // Originally, our implementation was similar to
+    //   y % 25 == 0 ? y % 16 == 0 : y % 4 == 0;
+    // and Ulrich Drepper suggested using the bitwise AND
+    return (y & (y % 25 == 0 ? 15 : 3)) == 0;
   }
 
 };
