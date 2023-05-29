@@ -73,6 +73,61 @@ public:
   static date_t<T> constexpr date_min = { min / 1461, 3, 1 };
 };
 
+/**
+ * @brief Limits for the optimised Gregorian algorithms with customised
+ * epoch. (Section 11 of the paper.)
+ *
+ * Contains static \c constexpr data members \c rata_die_min,
+ * \c rata_die_min, \c date_min and \c date_max, so that:
+ *
+ * \li <tt>to_date(N)</tt> is correct for
+ *     <tt>rata_die_min <= N <= rata_die_max</tt>;
+ *
+ * \li <tt>to_rata_die(Y_{G/J}, M_{G/J}, D_{G/J})</tt> is correct for
+ *     <tt>date_min <= date <= date_max</tt>, where
+ *     <tt>date = date_t<T>{ Y_{G/J}, M_{G/J}, D_{G/J} }</tt> is either in
+ *     the Julian or Gregorian calendar.
+ *
+ * @tparam T        Year and rata die type.
+ * @tparam epoch    The epoch shift (e.g., epoch_ = 719468 for Unix epoch).
+ * @tparam s        Cycles shift.
+ *
+ */
+template <typename T, T epoch = 0, T s = 0>
+class limits_gregorian_opt {
+
+  using uint_t = typename std::make_unsigned<T>::type;
+
+  static uint_t constexpr max = std::numeric_limits<uint_t>::max();
+  static T      constexpr K   = epoch + 146097 * s;
+  static T      constexpr L   = 400 * s;
+
+public:
+
+  // Function gregorian::to_date_opt() sets N = N_U + K and then, evaluates
+  // 4 * N + 3 on uint_t operands so that N must be positive and, to prevent
+  // overflow, 4 * N + 3 <= max, i.e., N <= (max - 3) / 4. Therefore, we
+  // must have 0 <= N_U + K <= (max - 3) / 4, that is,
+  //     -K <= N_U <= (max - 3) / 4 - K
+  static T constexpr rata_die_max = T((max - 3) / 4) - K;
+  static T constexpr rata_die_min = -K;
+
+  // Function gregorian::to_rata_die_opt sets Y = Y_G + L - J, where Y is
+  // a uint_t variable and J is either 1 for Jan and Feb or 0 for other
+  // months. Then, it evaluates, 1461 * Y. To prevent overflow we must have
+  // 0 <= Y_G + L - J <= max / 1461.
+  //
+  // If the month is Jan and Feb:
+  //     1 - L <= Y_G <= max / 1461 - L + 1.
+  // Otherwise,
+  //     -L    <= Y_G <= max / 1461 - L.
+  //
+  // (If year max / 1461 -L + 1 is a leap year, then there's no overflow on
+  // 29 Feb of this year either, so the bound below might not be sharp.)
+  static date_t<T> constexpr date_max = { T(max / 1461) - L + 1, 2, 28 };
+  static date_t<T> constexpr date_min = { -L, 3, 1 };
+};
+
 } // namespace eaf
 
 #endif // EAF_EAF_LIMITS_HPP
