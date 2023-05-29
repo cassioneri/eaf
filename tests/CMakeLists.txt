@@ -12,3 +12,8 @@ add_executable(algorithm_tests
   ../algorithms/definitions.cpp
 )
 target_link_libraries(algorithm_tests gtest gtest_main)
+
+add_executable(eaf_tests
+  eaf_tests.cpp
+)
+target_link_libraries(eaf_tests gtest gtest_main)

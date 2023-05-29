@@ -14,27 +14,48 @@
  */
 
 #include "tests/tests.hpp"
-
 #include "eaf/date.hpp"
+#include "eaf/gregorian.hpp"
+#include "eaf/julian.hpp"
 
 #include <gtest/gtest.h>
 
 #include <cstdint>
-#if 0
+
 namespace eaf {
 namespace tests {
 
-struct julian {
-  using helper_t = helper_t<julian_leap_t>;
+struct julian : julian_helper_t, limits<int32_t> {
+
+  static date32_t constexpr
+  to_date(int32_t N) noexcept {
+    return ::eaf::julian::to_date(N);
+  }
+
+  int32_t constexpr
+  static to_rata_die(int32_t Y_J, uint32_t M_J, uint32_t D_J) noexcept {
+    return ::eaf::julian::to_rata_die(Y_J, M_J, D_J);
+  }
+
 };
 
-struct gregorian {
-  using helper_t = helper_t<gregorian_leap_t>;
+struct gregorian : gregorian_helper_t, limits<int32_t> {
+
+  static date32_t constexpr
+  to_date(int32_t N) noexcept {
+    return ::eaf::gregorian::to_date(N);
+  }
+
+  int32_t constexpr
+  static to_rata_die(int32_t Y_J, uint32_t M_J, uint32_t D_J) noexcept {
+    return ::eaf::gregorian::to_rata_die(Y_J, M_J, D_J);
+  }
+
 };
 
 template <typename A>
-struct calendar_tests : public ::testing::Test {
-}; // struct calendat_tests
+struct eaf_tests : public ::testing::Test {
+}; // struct eaf_tests
 
 using calendars = ::testing::Types<
   julian,
@@ -43,32 +64,34 @@ using calendars = ::testing::Types<
 
 // The extra comma below is to silent a warning.
 // https://github.com/google/googletest/issues/2271#issuecomment-665742471
-TYPED_TEST_SUITE(calendar_tests, calendars, );
+TYPED_TEST_SUITE(eaf_tests, calendars, );
+
+static date32_t constexpr epoch = { 0, 3, 1 };
 
 /**
  * Tests whether epoch is mapped to 0.
  */
-TYPED_TEST(calendar_tests, epoch) {
+TYPED_TEST(eaf_tests, epoch) {
 
-  using algoritm_t = TypeParam;
+  using calendar_t = TypeParam;
 
-  EXPECT_EQ(algoritm_t::to_date(0), unix_epoch);
-  EXPECT_EQ(algoritm_t::to_rata_die(1970, 1, 1), 0);
+  EXPECT_EQ(calendar_t::to_date(0), epoch);
+  EXPECT_EQ(calendar_t::to_rata_die(0, 3, 1), 0);
 }
 
 /**
  * Tests whether to_date produces correct results going forward from 0 to
  * rata_die_max.
  */
-TYPED_TEST(calendar_tests, to_date_forward) {
+TYPED_TEST(eaf_tests, to_date_forward) {
 
-  using algoritm_t     = TypeParam;
-  int32_t rata_die_max = limits<algoritm_t>::rata_die_max;
+  using calendar_t = TypeParam;
 
-  date32_t date = unix_epoch;
-  for (int32_t n = 0; n < rata_die_max; ) {
-    date32_t const tomorrow = algoritm_t::to_date(++n);
-    ASSERT_EQ(tomorrow, advance(date)) << "Failed for rata_die = " << n;
+  date32_t date = epoch;
+  for (int32_t n = 0; n < calendar_t::rata_die_max; ) {
+    date32_t const tomorrow = calendar_t::to_date(++n);
+    ASSERT_EQ(tomorrow, calendar_t::advance(date)) <<
+      "Failed for rata_die = " << n;
   }
 }
 
@@ -76,29 +99,29 @@ TYPED_TEST(calendar_tests, to_date_forward) {
  * Tests whether to_date produces correct results going backward from 0 t
  * rata_die_min.
  */
-TYPED_TEST(calendar_tests, to_date_backward) {
+TYPED_TEST(eaf_tests, to_date_backward) {
 
-  using algoritm_t     = TypeParam;
-  int32_t rata_die_min = limits<algoritm_t>::rata_die_min;
+  using calendar_t = TypeParam;
 
-  date32_t date = unix_epoch;
-  for (int32_t n = 0; rata_die_min < n; ) {
-    date32_t const yesterday = algoritm_t::to_date(--n);
-    ASSERT_EQ(yesterday, regress(date)) << "Failed for rata_die = " << n;
+  date32_t date = epoch;
+  for (int32_t n = 0; calendar_t::rata_die_min < n; ) {
+    date32_t const yesterday = calendar_t::to_date(--n);
+    ASSERT_EQ(yesterday, calendar_t::regress(date)) <<
+      "Failed for rata_die = " << n;
   }
 }
 
 /**
  * Tests whether to_rata_die produce correct results going foward from epoch to date_max.
  */
-TYPED_TEST(calendar_tests, to_rata_die_forward) {
+TYPED_TEST(eaf_tests, to_rata_die_forward) {
 
-  using algoritm_t  = TypeParam;
-  date32_t date_max = limits<algoritm_t>::date_max;
+  using calendar_t = TypeParam;
 
   int32_t n = 0;
-  for (date32_t date = unix_epoch; date < date_max; ) {
-    int32_t const tomorrow = to_rata_die<algoritm_t>(advance(date));
+  for (date32_t date = epoch; date < calendar_t::date_max; ) {
+    int32_t const tomorrow =
+      to_rata_die<calendar_t>(calendar_t::advance(date));
     ASSERT_EQ(tomorrow, ++n) << "Failed for date = " << date;
   }
 }
@@ -106,18 +129,17 @@ TYPED_TEST(calendar_tests, to_rata_die_forward) {
 /**
  * Tests whether to_rata_die produce correct results backward from epoch to date_min.
  */
-TYPED_TEST(calendar_tests, to_rata_die_backward) {
+TYPED_TEST(eaf_tests, to_rata_die_backward) {
 
-  using algoritm_t  = TypeParam;
-  date32_t date_min = limits<algoritm_t>::date_min;
+  using calendar_t  = TypeParam;
 
   int32_t n = 0;
-  for (date32_t date = unix_epoch; date_min < date; ) {
-    int32_t const yesterday = to_rata_die<algoritm_t>(regress(date));
+  for (date32_t date = epoch; calendar_t::date_min < date; ) {
+    int32_t const yesterday =
+      to_rata_die<calendar_t>(calendar_t::regress(date));
     ASSERT_EQ(yesterday, --n) << "Failed for date = " << date;
   }
 }
 
 } // namespace tests
 } // namespace eaf
-#endif
