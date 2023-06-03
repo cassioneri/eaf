@@ -18,7 +18,9 @@ article's errata.
 **[Executables](#executables)**<br>
 **[Dependencies](#dependencies)**<br>
 **[Assembly snippets shown in the paper](#assembly-snippets-shown-in-the-paper)**<br>
+**[Other implementations](#other-implementations)**<br>
 **[Errata](#errata)**<br>
+
 
 # Building with CMake
 
@@ -143,6 +145,14 @@ Here is a list of Compiler Explorer links for each assembly snippet shown in the
   * Left timeline: https://godbolt.org/z/WYbz1xY8a
   * Right timeline: https://godbolt.org/z/e8Kjbsfd7
 * Figure 10: https://godbolt.org/z/coM5esxP4
+
+# Other implementations
+
+| Language           | Author             | Link                                          |
+|--------------------|--------------------|-----------------------------------------------|
+| C# (part of .NET7) | Sergey Pavlov      | [PR72712](https://github.com/dotnet/runtime/pull/72712) and [PR73277](https://github.com/dotnet/runtime/pull/73277)|
+| Rust               | Nuutti Kotivuori   | https://github.com/nakedible/datealgo-rs      |
+
 
 # Errata
 
