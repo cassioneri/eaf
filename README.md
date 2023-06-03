@@ -150,7 +150,7 @@ Here is a list of Compiler Explorer links for each assembly snippet shown in the
 
 | Language           | Author             | Link                                          |
 |--------------------|--------------------|-----------------------------------------------|
-| C# (part of .NET7) | Sergey Pavlov      | [PR72712](https://github.com/dotnet/runtime/pull/72712) and [PR73277](https://github.com/dotnet/runtime/pull/73277)|
+| C# (part of .NET7) | Sergei Pavlov      | [PR72712](https://github.com/dotnet/runtime/pull/72712) and [PR73277](https://github.com/dotnet/runtime/pull/73277)|
 | Rust               | Nuutti Kotivuori   | https://github.com/nakedible/datealgo-rs      |
 
 
