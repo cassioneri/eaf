@@ -16,11 +16,12 @@ project(EAF VERSION 1.0
   LANGUAGES CXX
 )
 
-set_property(GLOBAL PROPERTY CXX_STANDARD 11)
 if (MSVC)
+  set_property(GLOBAL PROPERTY CXX_STANDARD 14)
   string(REGEX REPLACE "/W[0-4]" "/W4 /WX" CMAKE_CXX_FLAGS
     "${CMAKE_CXX_FLAGS}")
 else()
+  set_property(GLOBAL PROPERTY CXX_STANDARD 11)
   add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 endif()
 

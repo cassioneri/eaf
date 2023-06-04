@@ -16,6 +16,10 @@
 #ifndef EAF_EAF_LIMITS_HPP
 #define EAF_EAF_LIMITS_HPP
 
+#include "eaf/common.hpp"
+
+#include <limits>
+
 namespace eaf {
 
 /**
@@ -73,6 +77,12 @@ public:
   static date_t<T> constexpr date_min = { min / 1461, 3, 1 };
 };
 
+template <typename T>
+date_t<T> constexpr limits<T>::date_min;
+
+template <typename T>
+date_t<T> constexpr limits<T>::date_max;
+
 /**
  * @brief Limits for optimised Gregorian algorithms with customised epoch.
  * (Section 11 of the paper.)
@@ -127,6 +137,12 @@ public:
   static date_t<T> constexpr date_max = { T(max / 1461) - L + 1, 2, 28 };
   static date_t<T> constexpr date_min = { -L, 3, 1 };
 };
+
+template <typename T, T epoch, T s>
+date_t<T> constexpr limits_gregorian_opt<T, epoch, s>::date_min;
+
+template <typename T, T epoch, T s>
+date_t<T> constexpr limits_gregorian_opt<T, epoch, s>::date_max;
 
 } // namespace eaf
 

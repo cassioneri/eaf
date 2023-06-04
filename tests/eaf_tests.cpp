@@ -41,6 +41,8 @@ struct julian : julian_helper_t, limits<int32_t> {
 
 };
 
+date32_t constexpr julian::epoch;
+
 struct gregorian : gregorian_helper_t, limits<int32_t> {
 
   static date32_t constexpr epoch = { 0, 3, 1 };
@@ -57,6 +59,8 @@ struct gregorian : gregorian_helper_t, limits<int32_t> {
 
 };
 
+date32_t constexpr gregorian::epoch;
+
 struct gregorian_opt : gregorian_helper_t, limits_gregorian_opt<int32_t> {
 
   static date32_t constexpr epoch = { 0, 3, 1 };
@@ -72,6 +76,8 @@ struct gregorian_opt : gregorian_helper_t, limits_gregorian_opt<int32_t> {
   }
 
 };
+
+date32_t constexpr gregorian_opt::epoch;
 
 struct gregorian_unix :
   gregorian_helper_t,
@@ -91,6 +97,8 @@ struct gregorian_unix :
   }
 
 };
+
+date32_t constexpr gregorian_unix::epoch;
 
 template <typename A>
 struct eaf_tests : public ::testing::Test {

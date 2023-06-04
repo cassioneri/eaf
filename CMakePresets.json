@@ -1,0 +1,206 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 1,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "clang",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "clang-cl",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang-cl.exe",
+        "CMAKE_CXX_COMPILER": "clang-cl.exe"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "gcc",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "msvc",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl.exe",
+        "CMAKE_CXX_COMPILER": "cl.exe"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "debug",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "release-symbols",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "release",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "ninja",
+      "hidden": true,
+      "generator": "Ninja"
+    },
+    {
+      "name": "make",
+      "hidden": true,
+      "generator": "Unix Makefiles",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "clang.debug.make",
+      "description": "Clang debug build using Make generator",
+      "inherits": [ "clang", "debug", "make" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "clang.debug.ninja",
+      "description": "Clang debug build using Ninja generator",
+      "inherits": [ "clang", "debug", "ninja" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "clang.release.make",
+      "description": "Clang release build using Make generator",
+      "inherits": [ "clang", "release", "make" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "clang.release.ninja",
+      "description": "Clang release build using Ninja generator",
+      "inherits": [ "clang", "release", "ninja" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "clang.release-symbols.make",
+      "description": "Clang release with symbols build using Make generator",
+      "inherits": [ "clang", "release-symbols", "make" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "clang.release-symbols.ninja",
+      "description": "Clang release with symbols build on Linux using Ninja generator",
+      "inherits": [ "clang", "release-symbols", "ninja" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "clang.debug",
+      "description": "Clang release build",
+      "inherits": [ "clang-cl", "debug", "ninja" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "clang.release",
+      "description": "Clang release build",
+      "inherits": [ "clang-cl", "release", "ninja" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "clang.release-symbols",
+      "description": "Clang release with symbols build",
+      "inherits": [ "clang-cl", "release-symbols", "ninja" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "gcc.debug.make",
+      "description": "GCC debug build on Linux using Make generator",
+      "inherits": [ "gcc", "debug", "make" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "gcc.debug.ninja",
+      "description": "GCC debug build on Linux using Ninja generator",
+      "inherits": [ "gcc", "debug", "ninja" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "gcc.release.make",
+      "description": "GCC release build on Linux using Make generator",
+      "inherits": [ "gcc", "release", "make" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "gcc.release.ninja",
+      "description": "GCC release build on Linux using Ninja generator",
+      "inherits": [ "gcc", "release", "ninja" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "gcc.release-symbols.make",
+      "description": "GCC release with symbols build on Linux using Make generator",
+      "inherits": [ "gcc", "release-symbols", "make" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "gcc.release-symbols.ninja",
+      "description": "GCC release with symbols build on Linux using Ninja generator",
+      "inherits": [ "gcc", "release-symbols", "ninja" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "msvc.debug",
+      "description": "MSVC debug build",
+      "inherits": [ "msvc", "debug", "ninja" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "msvc.release",
+      "description": "MSVC release build",
+      "inherits": [ "msvc", "release", "ninja" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "msvc.release-symbols",
+      "description": "MSVC release with symbols",
+      "inherits": [ "msvc", "release-symbols", "ninja" ],
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    }
+  ]
+}
