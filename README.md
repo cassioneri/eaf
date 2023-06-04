@@ -24,14 +24,22 @@ article's errata.
 
 # Building with CMake
 
-## Command line
+A list of CMakePresets is available. For instance, on Linux the preset
+`gcc.debug.make` builds in `debug` mode using `gcc` and `make`. On Windows
+`msvc.debug.ninja` builds in `debug` mode using `msvc` and `ninja`. In general,
+preset names have the form *compiler*.*mode*.*builder* where
 
-On the top level directory:
+* *compiler* is one of `clang` (Linux), `clang-cl` (Windows), gcc (Linux) or
+`msvc` (Windows);
+* *mode* is one of `debug`, `release` or `release-symbols`;
+* *builder* is one of `make` (Linux) or `ninja`.
+
+Tip: `cmake --list-presets` shows the complete list available presets.
+
+To build everything, on the top level directory, run:
 ```
-$ mkdir build
-$ cd build
-$ cmake .. -DCMAKE_BUILD_TYPE=Release
-$ make -j
+$ cmake --preset <preset-name>
+$ cmake --build build/<preset-name>
 ```
 
 ## Visual Studio IDE
@@ -40,13 +48,12 @@ Make sure you have the
 [cmake](https://learn.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=msvc-170)
 tools installed and, optionally,
 [clang](https://learn.microsoft.com/en-us/cpp/build/clang-support-msbuild?view=msvc-170)
-tools if you wish to build with this compiler. Simply open the top level
-folder and select one of the available configurations: _msvc.release_,
-_msvc.debug_, _clang.release_ or _clang.debug_.
+tools if you wish to build with `clang-cl`. Simply open the top level
+folder and select one of the available presets.
 
 # Executables
 
-They are created in the `build/bin` directory and the instructions below
+They are created in the `build/<preset-name>/bin` directory and the instructions below
 assumes this is the current working directory.
 
 | Name                 | Description                                                |
