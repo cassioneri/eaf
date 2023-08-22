@@ -16,12 +16,12 @@ project(EAF VERSION 1.0
   LANGUAGES CXX
 )
 
+set(CMAKE_CXX_STANDARD 14)
+
 if (MSVC)
-  set_property(GLOBAL PROPERTY CXX_STANDARD 14)
   string(REGEX REPLACE "/W[0-4]" "/W4 /WX" CMAKE_CXX_FLAGS
     "${CMAKE_CXX_FLAGS}")
 else()
-  set_property(GLOBAL PROPERTY CXX_STANDARD 11)
   add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 endif()
 
@@ -34,9 +34,7 @@ include(FetchContent)
 FetchContent_Declare(
   benchmark
   GIT_REPOSITORY https://github.com/google/benchmark.git
-  # Tag v1.7.0 contains issue 1466 [1] which was fixed by commit 77d1e74.
-  # [1] https://github.com/google/benchmark/issues/1466
-  GIT_TAG        77d1e74d29d4ee309b1c08eaea40ad789f08d125
+  GIT_TAG         v1.7.1
   SOURCE_DIR     ${CMAKE_SOURCE_DIR}/tp/benchmark
 )
 
@@ -51,7 +49,7 @@ target_compile_definitions(benchmark PUBLIC -DBENCHMARK_STATIC_DEFINE)
 FetchContent_Declare(
   multiprecision
   GIT_REPOSITORY https://github.com/boostorg/multiprecision.git
-  GIT_TAG        Boost_1_80_0
+  GIT_TAG        Boost_1_82_0
   SOURCE_DIR     ${CMAKE_SOURCE_DIR}/tp/multiprecision
 )
 
@@ -78,6 +76,7 @@ FetchContent_MakeAvailable(googletest)
 #---------------------------------------------------------------------------
 
 include_directories(${CMAKE_SOURCE_DIR})
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 
 add_subdirectory(algorithms)
