@@ -8,7 +8,9 @@ to calendar algorithms*". Softw Pract Exper. 2022;1-34. doi: [10.1002/spe.3172](
 In particular, it contains instructions on how to build the code and the
 article's errata.
 
-[![C++Now 2023 talk on calendar algorithms](c++now.png)](https://www.youtube.com/watch?v=0s9F4QWAl-E)
+This work has been presented at [C++ Now 2023](https://www.youtube.com/watch?v=0s9F4QWAl-E) and
+[C++ on Sea 2023](https://www.youtube.com/watch?v=J9KijLyP-yg).
+[![C++Now 2023](c++now.png)](https://www.youtube.com/watch?v=0s9F4QWAl-E)
 
 ## Table of Contents
 
