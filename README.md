@@ -163,7 +163,7 @@ Here is a list of Compiler Explorer links for each assembly snippet shown in the
 |--------------------|--------------------|-----------------------------------------------|
 | C# (part of .NET7) | Sergei Pavlov      | [PR72712](https://github.com/dotnet/runtime/pull/72712) and [PR73277](https://github.com/dotnet/runtime/pull/73277)|
 | Rust               | Nuutti Kotivuori   | https://github.com/nakedible/datealgo-rs      |
-
+| SPARK/Ada          | Jorge Luis Sacchini| [04e48784](https://git.codelabs.ch/?p=muen.git;a=commit;h=04e48784) and [e24cb651](https://git.codelabs.ch/?p=muen.git;a=commit;h=e24cb651)|
 
 # Errata
 
