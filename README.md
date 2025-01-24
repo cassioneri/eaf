@@ -157,19 +157,19 @@ Here is a list of Compiler Explorer links for each assembly snippet shown in the
   * Right timeline: https://godbolt.org/z/e8Kjbsfd7
 * Figure 10: https://godbolt.org/z/coM5esxP4
 
-# Other implementations
+# Open source implementations
 
-| Language      | Author              | Link                                      |
-|---------------|---------------------|-------------------------------------------|
-| C# (official) | Sergei Pavlov       | [PR72712](https://github.com/dotnet/runtime/pull/72712) and [PR73277](https://github.com/dotnet/runtime/pull/73277)|
-| Firefox       | Cassio Neri         | [54ebf8bd2e11](https://hg.mozilla.org/integration/autoland/rev/54ebf8bd2e111f7ea42027f55bf602faca4bb97b) |
-| Go (official) | Russ Cox            | [c5de950](https://github.com/golang/go/commit/c5de95076669ad2416aeec941912af723f2ccf78) |
-| libstdc++     | Cassio Neri         | [3dfd549](https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=3dfd5493cf9798d46dd24ac32becc54d5074271e) and [97d6161](https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=97d6161f6a7fa712622fc4e384fcb07e2ff5a127) |
-| Linux Kernel  | Cassio Neri         | [2760105](https://github.com/torvalds/linux/commit/276010551664f73b6f1616dde471d6f0d63a73ba) and [1d1bb12](https://github.com/torvalds/linux/commit/1d1bb12a8b1805ddeef9793ebeb920179fb0fa38) |
-| Rust          | Nuutti Kotivuori    | https://github.com/nakedible/datealgo-rs  |
-| SPARK/Ada     | Jorge Luis Sacchini | [04e48784](https://git.codelabs.ch/?p=muen.git;a=commit;h=04e48784) and [e24cb651](https://git.codelabs.ch/?p=muen.git;a=commit;h=e24cb651)|
-| Zig           | Travis Staloch      | https://github.com/travisstaloch/date-zig |
-
+| System       | Language | Author              | Link                                      |
+|------------- |----------|---------------------|-------------------------------------------|
+| libstdc++    | C++      | Cassio Neri         | [3dfd549](https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=3dfd5493cf9798d46dd24ac32becc54d5074271e) and [97d6161](https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=97d6161f6a7fa712622fc4e384fcb07e2ff5a127) |
+| Linux Kernel | C        | Cassio Neri         | [2760105](https://github.com/torvalds/linux/commit/276010551664f73b6f1616dde471d6f0d63a73ba) and [1d1bb12](https://github.com/torvalds/linux/commit/1d1bb12a8b1805ddeef9793ebeb920179fb0fa38) |
+| .NET         | C#       | Sergei Pavlov       | [PR72712](https://github.com/dotnet/runtime/pull/72712) and [PR73277](https://github.com/dotnet/runtime/pull/73277)|
+| datealgo-rs  | Rust     | Nuutti Kotivuori    | https://github.com/nakedible/datealgo-rs |
+| Firefox      | C++      | Cassio Neri         | [54ebf8bd2e11](https://hg.mozilla.org/integration/autoland/rev/54ebf8bd2e111f7ea42027f55bf602faca4bb97b) |
+| Muen         | Ada      | Jorge Luis Sacchini | [04e48784](https://github.com/codelabs-ch/muen/commit/04e487846231c7e5e15789ba79c22e085114d82c) and [e24cb651](https://github.com/codelabs-ch/muen/commit/e24cb65159ab23e7769da3f9d1ad14089185ff6f)|
+| date-zig     | Zig      | Travis Staloch      | https://github.com/travisstaloch/date-zig |
+| Go library   | Go       | Russ Cox            | [c5de950](https://github.com/golang/go/commit/c5de95076669ad2416aeec941912af723f2ccf78) |
+| Temporal     | Rust     | Kevin Ness          | [PR147](https://github.com/boa-dev/temporal/pull/147) |
 
 # Errata
 
