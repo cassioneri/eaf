@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 // SPDX-FileCopyrightText: 2022 Cassio Neri <cassio.neri@gmail.com>
 // SPDX-FileCopyrightText: 2022 Lorenz Schneider <schneider@em-lyon.com>
 
