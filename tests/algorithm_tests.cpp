@@ -74,6 +74,7 @@ using implementations = ::testing::Types<
   fliegel_flandern,
   glibc,
   hatcher,
+  libcxx,
   neri_schneider,
   openjdk,
   reingold_dershowitz
