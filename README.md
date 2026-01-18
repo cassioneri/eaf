@@ -159,17 +159,22 @@ Here is a list of Compiler Explorer links for each assembly snippet shown in the
 
 # Open source implementations
 
-| System       | Language | Author              | Link                                      |
-|------------- |----------|---------------------|-------------------------------------------|
-| libstdc++    | C++      | Cassio Neri         | [3dfd549](https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=3dfd5493cf9798d46dd24ac32becc54d5074271e) and [97d6161](https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=97d6161f6a7fa712622fc4e384fcb07e2ff5a127) |
-| Linux Kernel | C        | Cassio Neri         | [2760105](https://github.com/torvalds/linux/commit/276010551664f73b6f1616dde471d6f0d63a73ba) and [1d1bb12](https://github.com/torvalds/linux/commit/1d1bb12a8b1805ddeef9793ebeb920179fb0fa38) |
-| .NET         | C#       | Sergei Pavlov       | [PR72712](https://github.com/dotnet/runtime/pull/72712) and [PR73277](https://github.com/dotnet/runtime/pull/73277)|
-| datealgo-rs  | Rust     | Nuutti Kotivuori    | https://github.com/nakedible/datealgo-rs |
-| Firefox      | C++      | Cassio Neri         | [54ebf8bd2e11](https://hg.mozilla.org/integration/autoland/rev/54ebf8bd2e111f7ea42027f55bf602faca4bb97b) |
-| Muen         | Ada      | Jorge Luis Sacchini | [04e48784](https://github.com/codelabs-ch/muen/commit/04e487846231c7e5e15789ba79c22e085114d82c) and [e24cb651](https://github.com/codelabs-ch/muen/commit/e24cb65159ab23e7769da3f9d1ad14089185ff6f)|
-| date-zig     | Zig      | Travis Staloch      | https://github.com/travisstaloch/date-zig |
-| Go library   | Go       | Russ Cox            | [c5de950](https://github.com/golang/go/commit/c5de95076669ad2416aeec941912af723f2ccf78) |
-| Temporal     | Rust     | Kevin Ness          | [PR147](https://github.com/boa-dev/temporal/pull/147) |
+| System         | Language   | Author              | Link                                      |
+|--------------- |------------|---------------------|-------------------------------------------|
+| libstdc++      | C++        | Cassio Neri         | [3dfd549](https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=3dfd5493cf9798d46dd24ac32becc54d5074271e) and [97d6161](https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=97d6161f6a7fa712622fc4e384fcb07e2ff5a127) |
+| Linux Kernel   | C          | Cassio Neri         | [2760105](https://github.com/torvalds/linux/commit/276010551664f73b6f1616dde471d6f0d63a73ba) and [1d1bb12](https://github.com/torvalds/linux/commit/1d1bb12a8b1805ddeef9793ebeb920179fb0fa38) |
+| .NET           | C#         | Sergei Pavlov       | [PR72712](https://github.com/dotnet/runtime/pull/72712) and [PR73277](https://github.com/dotnet/runtime/pull/73277)|
+| AssemblyScript | Typescript | Max Graey           | [PR2397](https://github.com/AssemblyScript/assemblyscript/pull/2397)
+| Firefox        | C++        | Cassio Neri         | [54ebf8bd2e11](https://hg.mozilla.org/integration/autoland/rev/54ebf8bd2e111f7ea42027f55bf602faca4bb97b) |
+| datealgo-rs    | Rust       | Nuutti Kotivuori    | [PR19](https://github.com/nakedible/datealgo-rs/pull/19) |
+| Muen           | Ada        | Jorge Luis Sacchini | [04e48784](https://github.com/codelabs-ch/muen/commit/04e487846231c7e5e15789ba79c22e085114d82c) and [e24cb651](https://github.com/codelabs-ch/muen/commit/e24cb65159ab23e7769da3f9d1ad14089185ff6f)|
+| date-zig       | Zig        | Travis Staloch      | https://github.com/travisstaloch/date-zig |
+| Go library     | Go         | Russ Cox            | [c5de950](https://github.com/golang/go/commit/c5de95076669ad2416aeec941912af723f2ccf78) |
+| sun-position   | Python     | Samuel Powell       | [a30f3cf](github.com/s-bear/sun-position/commit/a30f3cf429977255c8e287f0e6d2bc7ea226b35d) |
+| Temporal       | Rust       | Kevin Ness          | [PR147](https://github.com/boa-dev/temporal/pull/147) |
+| Elixir         | Elixir     | Daniel Kukula       | [PR14999](https://github.com/elixir-lang/elixir/pull/14999)
+| Erlang         | Erlang     | Daniel Kukula       | [PR10449](https://github.com/erlang/otp/pull/10449)
+| Ruby           | C          | Maciej Mensfeld     | [PR152](https://github.com/ruby/date/pull/152) |
 
 # Errata
 
