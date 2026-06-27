@@ -7,7 +7,7 @@
 #     Neri C, and Schneider L, "Euclidean Affine Functions and their
 #     Application to Calendar Algorithms" (2022).
 
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.5)
 
 project(EAF VERSION 1.0
   DESCRIPTION "Supplement material to \
